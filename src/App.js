@@ -1,10 +1,13 @@
 import './App.css';
+import ChatContainer from './components/ChatContainer';
+import ChatLogo from './components/ChatLogo';
 
 function App() {
   return (
-    <div className='App-container'>
-
-    </div>
+    <>
+      <ChatContainer />
+      <ChatLogo />
+    </>
   );
 }
 
