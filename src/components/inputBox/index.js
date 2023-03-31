@@ -12,7 +12,7 @@ export const InputBox = () => {
         placeholder="query"
       />
       <Button
-        appearance="primary"
+        // appearance="primary"
         aria-label="Submit your response"
         size="regular"
       >
