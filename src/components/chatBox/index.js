@@ -2,12 +2,20 @@ import React from "react";
 
 const ChatItem = ({ chat }) => {
   const type = chat.author.name;
+  const message = chat.message.code;
 
-  return <>{type === "AI" ? <div>AI chat</div> : <div>Human chat</div>}</>;
+  return (
+    <div
+      className={`m-5 d-flex ${type === "HUMAN" ? "justify-content-end" : ""}`}
+    >
+      <div className="w-25 bg-light p-4 message-box">
+        {message}
+      </div>
+    </div>
+  );
 };
 
 export const ChatBox = ({ chatData }) => {
-  console.log("chat dataaa", chatData);
   return (
     <div className="bg-secondary chatbox">
       {chatData.map((chat, key) => (

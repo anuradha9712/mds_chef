@@ -30,6 +30,7 @@ export const RightPanel = () => {
       },
     },
   ];
+
   const onSubmitHandler = (query) => {
     console.log("submit query -> ", query);
   };
