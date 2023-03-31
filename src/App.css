@@ -23,14 +23,12 @@
   scroll-behavior: auto;
 }
 
-.border-right {
-  border-right: var(--border);
-}
-
-.h-80vh {
-  height: 80vh !important;
-}
-
 .bg-secondary-lightest {
   background-color: var(--secondary-lightest) !important;
+}
+
+.vertical-nav-container {
+  border-right: var(--border);
+  height: calc(80vh - 44px) !important;
+  border-radius: var(--spacing-m);
 }
