@@ -11,7 +11,7 @@ export const ChatLogo = () => {
         className="Chat-logo d-flex align-items-center justify-content-center cursor-pointer"
         onClick={() => setOpen(!open)}
       >
-        {open ? <div>OPEN</div> : <div>CLOSE</div>}
+        {open ? <div>Close</div> : <div>Open</div>}
       </div>
     </>
   );
