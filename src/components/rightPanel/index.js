@@ -6,10 +6,28 @@ import ChatBox from "../chatBox";
 export const RightPanel = () => {
   const chatData = [
     {
-      HUMAN: "hello I am user",
+      id: 123,
+      message: {
+        code: "hello I am user",
+        text: "",
+        suggestions: [],
+        actions: [],
+      },
+      author: {
+        name: "HUMAN",
+      },
     },
     {
-      AI: "hi i am ai",
+      id: 456,
+      message: {
+        code: "hello I am AI",
+        text: "",
+        suggestions: [],
+        actions: [],
+      },
+      author: {
+        name: "AI",
+      },
     },
   ];
   const onSubmitHandler = (query) => {
