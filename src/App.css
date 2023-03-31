@@ -2,9 +2,10 @@
   width: 80vw;
   height: 80vh;
   position: fixed;
-  bottom: var(--spacing-5);
+  bottom: var(--spacing-6);
   right: var(--spacing-5);
-  background-color: var(--primary);
+  background-color: var(--secondary-shadow);
+  border-radius: var(--spacing-2);
 }
 
 .Chat-logo {

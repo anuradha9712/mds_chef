@@ -13,6 +13,7 @@ export const InputBox = ({ onSubmitHandler }) => {
       <Input
         name="input"
         value={query}
+        size="large"
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Enter your query here"
         onKeyPress={handleKeyPress}
