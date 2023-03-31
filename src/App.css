@@ -17,3 +17,20 @@
   width: var(--spacing-4);
   background-color: var(--secondary);
 }
+
+.page-scroll {
+  overflow-y: auto;
+  scroll-behavior: auto;
+}
+
+.border-right {
+  border-right: var(--border);
+}
+
+.h-80vh {
+  height: 80vh !important;
+}
+
+.bg-secondary-lightest {
+  background-color: var(--secondary-lightest) !important;
+}

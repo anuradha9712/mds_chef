@@ -17,7 +17,7 @@ export const getUserQuery = async (query) => {
   };
 
   const result = await fetch(
-    "https://0pgfj5ywg2.execute-api.us-east-1.amazonaws.com/default/chatgpt-test",
+    "https://mds-chef.vercel.app/api/handler",
     requestOptions
   )
     .then((response) => {

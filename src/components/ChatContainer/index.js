@@ -5,7 +5,7 @@ import { Row, Column } from "@innovaccer/design-system";
 
 export const ChatContainer = () => {
   return (
-    <div className="App-container">
+    <div className="App-container p-6">
       <Row>
         <Column size={3}>
           <LeftPanel />
