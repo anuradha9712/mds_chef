@@ -8,7 +8,7 @@ const ChatItem = ({ chat }) => {
     <div
       className={`m-5 d-flex ${type === "HUMAN" ? "justify-content-end" : ""}`}
     >
-      <div className="w-25 bg-light p-4 message-box">
+      <div className="w-25 bg-secondary-lightest p-4 message-box">
         {message}
       </div>
     </div>
@@ -17,7 +17,7 @@ const ChatItem = ({ chat }) => {
 
 export const ChatBox = ({ chatData }) => {
   return (
-    <div className="bg-secondary chatbox">
+    <div className="bg-light chatbox p-4">
       {chatData.map((chat, key) => (
         <ChatItem chat={chat} key={key} />
       ))}

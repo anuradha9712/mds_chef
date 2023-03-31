@@ -17,7 +17,7 @@ export const ChatContainer = () => {
         <Column size={3}>
           <LeftPanel optionClickHandler={optionClickHandler} />
         </Column>
-        <Column size={9}>
+        <Column size={8.5} className='ml-6'>
           <RightPanel componentName={componentName} />
         </Column>
       </Row>
