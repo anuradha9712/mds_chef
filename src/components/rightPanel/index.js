@@ -1,7 +1,7 @@
 import React from "react";
 
-export const rightPanel = () => {
+export const RightPanel = () => {
     return <div>right panel</div>
 }
 
-export default rightPanel;
+export default RightPanel;

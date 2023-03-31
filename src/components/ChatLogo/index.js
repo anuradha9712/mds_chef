@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ChatContainer from '../chatContainer';
 
 export const ChatLogo = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <>
