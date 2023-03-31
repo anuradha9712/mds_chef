@@ -32,6 +32,7 @@
   height: calc(80vh - 44px) !important;
   border-radius: var(--spacing-m);
 }
+
 .chatbox {
   height: 70vh;
 }

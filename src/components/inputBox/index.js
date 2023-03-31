@@ -1,25 +1,25 @@
+import React, {useState} from "react";
 import { Input, Row, Button } from "@innovaccer/design-system";
-import React from "react";
 
-export const InputBox = () => {
+export const InputBox = ({onSubmitHandler}) => {
+  const [query, setQuery] = useState('');
   return (
     <Row>
       <Input
         name="input"
-        // className="w-25"
-        // value={value}
-        // onChange={onChange}
-        placeholder="query"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Enter your query here"
       />
       <Button
-        // appearance="primary"
-        aria-label="Submit your response"
         size="regular"
+        aria-label="Submit your response"
+        onClick={() => onSubmitHandler(query)}
       >
         Sent
       </Button>
     </Row>
   );
-}
+};
 
 export default InputBox;

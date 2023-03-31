@@ -4,11 +4,23 @@ import InputBox from "../inputBox";
 import ChatBox from "../chatBox";
 
 export const RightPanel = () => {
+  const chatData = [
+    {
+      HUMAN: "hello I am user",
+    },
+    {
+      AI: "hi i am ai",
+    },
+  ];
+  const onSubmitHandler = (query) => {
+    console.log("submit query -> ", query);
+  };
+
   return (
     <div>
       <TopHeader />
-      <ChatBox />
-      <InputBox />
+      <ChatBox chatData={chatData} />
+      <InputBox onSubmitHandler={onSubmitHandler} />
     </div>
   );
 };
