@@ -1,12 +1,10 @@
-export const getUserQuery = async (query) => {
+export const getChatData = async (componentName, query) => {
   var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "text/plain");
+  myHeaders.append("Content-Type", "application/json");
 
   var raw = JSON.stringify({
-    text: query,
-    model: "text-davinci-003",
-    temperature: 0.7,
-    max_tokens: 2048,
+    component: componentName,
+    query
   });
 
   var requestOptions = {
@@ -17,7 +15,7 @@ export const getUserQuery = async (query) => {
   };
 
   const result = await fetch(
-    "https://mds-chef.vercel.app/api/handler",
+    "https://mds-chef-samyak3009.vercel.app/api/uigenerator",
     requestOptions
   )
     .then((response) => {
@@ -30,3 +28,5 @@ export const getUserQuery = async (query) => {
 
   return result;
 };
+
+export default getChatData;

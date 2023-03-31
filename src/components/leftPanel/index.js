@@ -2,7 +2,7 @@ import React from "react";
 import navData from "./navData";
 import { VerticalNav, Input } from "@innovaccer/design-system";
 
-export const LeftPanel = () => {
+export const LeftPanel = ({optionClickHandler}) => {
   const [active, setActive] = React.useState({
     name: "Avatar",
   });
@@ -10,6 +10,7 @@ export const LeftPanel = () => {
   const [data, setData] = React.useState(navData);
 
   const onClickHandler = (menu) => {
+    optionClickHandler(menu.name)
     setActive(menu);
   };
 
@@ -20,7 +21,7 @@ export const LeftPanel = () => {
       item.label.toLocaleLowerCase().includes(e.target.value)
     );
     setValue(e.target.value);
-    setData(filteredData)
+    setData(filteredData);
   }, []);
 
   const onClear = React.useCallback(() => {
@@ -39,6 +40,7 @@ export const LeftPanel = () => {
         size="large"
         className="mb-3"
         icon="search"
+        minWidth="50px"
       />
       <div className="vertical-nav-container bg-secondary-lightest page-scroll">
         <VerticalNav
