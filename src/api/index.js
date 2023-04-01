@@ -1,4 +1,4 @@
-export const getChatData = async (componentName, query) => {
+export const getChatData = async (componentName = 'Avatar', query) => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 

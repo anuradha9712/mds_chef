@@ -10,7 +10,7 @@ export const RightPanel = ({ componentName }) => {
       id: 123,
       message: {
         code: "",
-        text: "Hello! I am Masala Design System Chef \n Please select an ingredient from panel to start making a recipe",
+        text: `Hello! I am Masala Design System Chef \n Please select an ingredient from panel to start making a recipe`,
         suggestions: [],
         actions: [],
       },

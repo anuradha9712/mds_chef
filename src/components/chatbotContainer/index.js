@@ -4,7 +4,7 @@ import RightPanel from "../rightPanel";
 import { Row, Column } from "@innovaccer/design-system";
 
 export const ChatContainer = () => {
-  const [componentName, setComponentName] = useState("Avatar");
+  const [componentName, setComponentName] = useState();
 
   const optionClickHandler = (option) => {
     setComponentName(option);

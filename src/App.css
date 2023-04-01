@@ -59,6 +59,7 @@
 
 .message-box {
   border-radius: 4px;
+  white-space: pre-line;
 }
 
 .codeblock-container {

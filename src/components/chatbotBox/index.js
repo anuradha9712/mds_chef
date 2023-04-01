@@ -69,8 +69,8 @@ const ChatItem = ({ chat }) => {
                   size="regular" />
               </div>
             </Column>
-            <Column size={11}>
-              <div><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
+            <Column size={11} className="border-bottom pb-5">
+              <div className="mb-4"><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
               <div className="bg-secondary-lightest p-4 message-box">{message}</div>
             </Column>
           </Row>
@@ -87,10 +87,11 @@ const ChatItem = ({ chat }) => {
                   size="regular" />
               </div>
             </Column>
-            <Column size={11}>
-              <div><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
+            <Column size={11} className="border-bottom pb-5">
+              <div className="mb-4"><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
               <CodePreview codeResponse={codeResponse} />
             </Column>
+            <Divider appearance="basic" />
           </Row>
         )}
       </Row>
