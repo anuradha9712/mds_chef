@@ -54,7 +54,7 @@ const ChatItem = ({ chat }) => {
   const type = chat.author.name;
   const message = chat.message.text;
   const codeResponse = chat.message.code;
-  const timeStamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: true });
+  const timeStamp = chat.time;
 
   return (
     <div className="m-5">

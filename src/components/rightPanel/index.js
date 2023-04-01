@@ -17,6 +17,7 @@ export const RightPanel = ({ componentName }) => {
       author: {
         name: "AI",
       },
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: true })
     }
   ];
   const [chatData, setChatData] = useState(dummyData);
@@ -34,6 +35,11 @@ export const RightPanel = ({ componentName }) => {
           author: {
             name: "HUMAN",
           },
+          time: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+          }),
         };
         const response = {
           message: {
@@ -42,6 +48,11 @@ export const RightPanel = ({ componentName }) => {
           author: {
             name: "AI",
           },
+          time: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+          }),
         };
         setShowLoader(false);
         setChatData([...chatData, userQuery, response]);
