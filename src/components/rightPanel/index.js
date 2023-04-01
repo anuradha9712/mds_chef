@@ -4,7 +4,7 @@ import InputBox from "../inputBox";
 import ChatBox from "../chatBox";
 import getChatData from "../../api";
 
-export const RightPanel = ({componentName}) => {
+export const RightPanel = ({ componentName }) => {
   const chatData = [
     {
       id: 123,

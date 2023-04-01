@@ -15,14 +15,14 @@ export const getChatData = async (componentName, query) => {
   };
 
   const result = await fetch(
-    "https://mds-chef-samyak3009.vercel.app/api/uigenerator",
+    "https://mds-chef.vercel.app/api/uigenerator",
     requestOptions
   )
     .then((response) => {
       return response.json();
     })
     .then((result) => {
-      return result?.data;
+      return result;
     })
     .catch((error) => console.log("error", error));
 

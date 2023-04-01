@@ -3,9 +3,12 @@
   height: 80vh;
   position: fixed;
   bottom: var(--spacing-6);
-  right: var(--spacing-5);
-  background-color: var(--secondary-shadow);
+  right: var(--spacing-6);
+  background-color: var(--secondary-lightest);
   border-radius: var(--spacing-2);
+  border: var(--border);
+  box-shadow: 0 0 0 5px var(--secondary-shadow);
+  z-index: 5000;
 }
 
 .Chat-logo {
@@ -29,7 +32,6 @@
 }
 
 .vertical-nav-container {
-  border-right: var(--border);
   height: calc(80vh - 44px) !important;
   border-radius: var(--spacing-m);
 }
