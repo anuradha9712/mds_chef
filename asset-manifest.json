@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.3825acd0.css",
-    "main.js": "./static/js/main.dfa539c3.js",
+    "main.css": "./static/css/main.a4520e5a.css",
+    "main.js": "./static/js/main.dbfcc847.js",
     "static/js/787.9431d80f.chunk.js": "./static/js/787.9431d80f.chunk.js",
     "static/media/MaterialIconsTwoTone-Regular.otf": "./static/media/MaterialIconsTwoTone-Regular.1505d949a92ea9708af7.otf",
     "static/media/MaterialIconsRound-Regular.otf": "./static/media/MaterialIconsRound-Regular.67e0b26ebba5d330b5df.otf",
@@ -11,12 +11,12 @@
     "static/media/masterchef.svg": "./static/media/masterchef.8e30519ed790012c4844a2e172a7b0ae.svg",
     "index.html": "./index.html",
     "static/media/codesandbox_icon.svg": "./static/media/codesandbox_icon.44a8504483726e52e03b83a522233b9f.svg",
-    "main.3825acd0.css.map": "./static/css/main.3825acd0.css.map",
-    "main.dfa539c3.js.map": "./static/js/main.dfa539c3.js.map",
+    "main.a4520e5a.css.map": "./static/css/main.a4520e5a.css.map",
+    "main.dbfcc847.js.map": "./static/js/main.dbfcc847.js.map",
     "787.9431d80f.chunk.js.map": "./static/js/787.9431d80f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3825acd0.css",
-    "static/js/main.dfa539c3.js"
+    "static/css/main.a4520e5a.css",
+    "static/js/main.dbfcc847.js"
   ]
 }
