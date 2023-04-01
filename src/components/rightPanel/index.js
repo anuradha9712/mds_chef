@@ -1,28 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import TopHeader from "../topHeader";
 import InputBox from "../inputBox";
 import ChatBox from "../chatBox";
 import getChatData from "../../api";
 
 export const RightPanel = ({ componentName }) => {
-  const chatData = [
+  const dummyData = [
     {
       id: 123,
       message: {
         code: "",
-        text: "hello I am user",
+        text: "Hello! I am Masala Design System Chef",
         suggestions: [],
         actions: [],
       },
       author: {
-        name: "HUMAN",
+        name: "AI",
       },
     },
     {
       id: 456,
       message: {
-        code: "code generated here",
-        text: "hello I am AI",
+        code: "",
+        text: "Please select an ingredient from panel to start making a recipe",
         suggestions: [],
         actions: [],
       },
@@ -31,11 +31,22 @@ export const RightPanel = ({ componentName }) => {
       },
     },
   ];
+  const [chatData, setChatData] = useState(dummyData);
+  
 
   const onSubmitHandler = (query) => {
     getChatData(componentName, query)
       .then((data) => {
         console.log('get data', data)
+        const response = {
+          message: {
+            code: data.code,
+          },
+          author: {
+            name: "AI",
+          },
+        };
+        setChatData([...chatData, response]);
       })
       .catch((err) => {
         console.log('error data', err)

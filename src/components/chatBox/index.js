@@ -9,7 +9,7 @@ const ChatItem = ({ chat }) => {
     <div
       className={`m-5 d-flex ${type === "HUMAN" ? "justify-content-end" : ""}`}
     >
-      <div className="w-25 bg-secondary-lightest p-4 message-box">
+      <div className="bg-secondary-lightest p-4 message-box">
         {message}
       </div>
       {codeResponse && <div> <code>{codeResponse}</code> </div>}

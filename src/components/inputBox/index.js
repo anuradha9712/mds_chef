@@ -13,21 +13,18 @@ export const InputBox = ({ onSubmitHandler }) => {
       <Input
         name="input"
         value={query}
-        
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Enter your query here"
         onKeyPress={handleKeyPress}
       />
       <Button
-      className="ml-3"
+        className="ml-3"
         size="regular"
         aria-label="Submit your response"
         onClick={() => onSubmitHandler(query)}
         icon="send"
         iconAlign="left"
-      >
-        
-      </Button>
+      ></Button>
     </Row>
   );
 };
