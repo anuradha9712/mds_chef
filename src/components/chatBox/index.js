@@ -1,7 +1,7 @@
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Row } from "@innovaccer/design-system";
+import { Row, Spinner } from "@innovaccer/design-system";
 
 const CodePreview = ({ codeResponse }) => {
   //   const codeResponse = `
@@ -11,7 +11,6 @@ const CodePreview = ({ codeResponse }) => {
   //     <ChipGroup list={[ { disabled: false, icon: 'assessment' , label: 'Action' , name: '1' , type: 'action' }, { clearButton: true, disabled: false, icon: 'assessment' , label: 'Input' , name: '2' , type: 'input' }, { clearButton: true, disabled: false, icon: 'assessment' , label: 'Selection' , name: '3' , selected: true, type: 'selection' }, { clearButton: true, disabled: false, icon: 'assessment' , label: 'Selection' , name: '4' , type: 'selection' } ]} onClick={function(){}} onClose={function(){}} />
   //   );
   // }`;
-  console.log("codeResponse", codeResponse);
 
   return (
     <SyntaxHighlighter
@@ -46,12 +45,17 @@ const ChatItem = ({ chat }) => {
   );
 };
 
-export const ChatBox = ({ chatData }) => {
+export const ChatBox = ({ chatData, showLoader }) => {
   return (
     <div className="bg-light chatbox p-4 overflow-auto">
       {chatData.map((chat, key) => (
         <ChatItem chat={chat} key={key} />
       ))}
+      {showLoader && (
+        <Row className="justify-content-center">
+          <Spinner />
+        </Row>
+      )}
     </div>
   );
 };

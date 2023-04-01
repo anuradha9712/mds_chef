@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Input, Row, Button } from "@innovaccer/design-system";
 
-export const InputBox = ({ onSubmitHandler }) => {
-  const [query, setQuery] = useState("");
+export const InputBox = ({ onSubmitHandler, componentName }) => {
+  const [query, setQuery] = useState(componentName);
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       onSubmitHandler(query);
