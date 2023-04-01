@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TopHeader from "../topHeader";
 import InputBox from "../inputBox";
-import ChatBox from "../chatBox";
+import ChatBox from "../chatbotBox";
 import getChatData from "../../api";
 
 export const RightPanel = ({ componentName }) => {

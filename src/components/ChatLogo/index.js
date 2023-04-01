@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ChatContainer from '../chatContainer';
+import ChatContainer from '../chatbotContainer';
 import { Icon } from "@innovaccer/design-system";
 import chefLogo from "../../images/masterchef.svg";
 
