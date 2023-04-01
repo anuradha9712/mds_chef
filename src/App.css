@@ -43,3 +43,9 @@
 .message-box {
   border-radius: 4px;
 }
+
+.codeblock-container {
+  background: rgb(1, 22, 39);
+  border-radius: 16px;
+  padding: 16px;
+}

@@ -1,30 +1,51 @@
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Row, Spinner } from "@innovaccer/design-system";
+import { Row, Spinner, Icon } from "@innovaccer/design-system";
+// import openSandbox from "./sandbox.js";
 
-const CodePreview = ({ codeResponse }) => {
-  //   const codeResponse = `
-  // // import { ChipGroup } from '@innovaccer/design-system';
-  // () => {
-  //   return(
-  //     <ChipGroup list={[ { disabled: false, icon: 'assessment' , label: 'Action' , name: '1' , type: 'action' }, { clearButton: true, disabled: false, icon: 'assessment' , label: 'Input' , name: '2' , type: 'input' }, { clearButton: true, disabled: false, icon: 'assessment' , label: 'Selection' , name: '3' , selected: true, type: 'selection' }, { clearButton: true, disabled: false, icon: 'assessment' , label: 'Selection' , name: '4' , type: 'selection' } ]} onClick={function(){}} onClose={function(){}} />
-  //   );
-  // }`;
+const CopyCode = (props) => {
+  const { jsxCode } = props;
+
+  const onClickHandler = () => {
+    navigator.clipboard.writeText(jsxCode);
+  };
 
   return (
-    <SyntaxHighlighter
-      wrapLongLines={true}
-      language="javascript"
-      style={nightOwl}
-      customStyle={{
-        margin: "0 16px",
-        borderRadius: "8px",
-        paddingTop: "26px",
-      }}
-    >
-      {codeResponse}
-    </SyntaxHighlighter>
+    <div className="ml-auto d-flex justify-content-end ">
+      {/* <img
+        src="/icons/4691539_codesandbox_icon.svg"
+        className="codesandBox-icon cursor-pointer mr-6 align-self-center"
+        onClick={(e) => {
+          e.preventDefault();
+          openSandbox(jsxCode);
+        }}
+      /> */}
+      <div className="d-flex align-self-end">
+        <Icon
+          name="content_copy"
+          size={20}
+          appearance="white"
+          onClick={onClickHandler}
+          className="align-self-center cursor-pointer"
+        />
+      </div>
+    </div>
+  );
+};
+const CodePreview = ({ codeResponse }) => {
+
+  return (
+    <div className="codeblock-container">
+      <CopyCode jsxCode={codeResponse} />
+      <SyntaxHighlighter
+        wrapLongLines={true}
+        language="javascript"
+        style={nightOwl}
+      >
+        {codeResponse}
+      </SyntaxHighlighter>
+    </div>
   );
 };
 
