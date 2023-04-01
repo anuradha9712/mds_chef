@@ -33,11 +33,17 @@ export const RightPanel = ({ componentName }) => {
   ];
   const [chatData, setChatData] = useState(dummyData);
   
-
   const onSubmitHandler = (query) => {
     getChatData(componentName, query)
       .then((data) => {
-        console.log('get data', data)
+        const userQuery = {
+          message: {
+            text: query,
+          },
+          author: {
+            name: "HUMAN",
+          },
+        };
         const response = {
           message: {
             code: data.code,
@@ -46,7 +52,7 @@ export const RightPanel = ({ componentName }) => {
             name: "AI",
           },
         };
-        setChatData([...chatData, response]);
+        setChatData([...chatData, userQuery, response]);
       })
       .catch((err) => {
         console.log('error data', err)
