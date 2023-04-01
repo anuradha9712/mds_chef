@@ -2,29 +2,18 @@ import * as LZString from 'lz-string';
 
 // https://github.com/codesandbox/codesandbox-importers/blob/master/packages/import-utils/src/api/define.ts
 
-type IPackage = {
-  dependencies: object;
-};
-
-interface IFiles {
-  [key: string]: {
-    content: string | IPackage;
-    isBinary?: boolean;
-  };
-}
-
-const compress = (input: string) => {
+const compress = (input) => {
   return LZString.compressToBase64(input)
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
     .replace(/=+$/, ''); // Remove ending '='
 };
 
-const getParameters = (options: { files: IFiles }) => {
+const getParameters = (options) => {
   return compress(JSON.stringify(options));
 };
 
-export default (jsxStoryCode: string) => {
+export const openSandbox =  (jsxStoryCode) => {
   const structuredCode = jsxStoryCode
     .trim()
     // @ts-ignore
@@ -82,3 +71,5 @@ ReactDOM.render(<App />, document.getElementById("root"));
   const url = `https://codesandbox.io/api/v1/sandboxes/define?parameters=${parameters}`;
   return window.open(url);
 };
+
+export default openSandbox;

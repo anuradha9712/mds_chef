@@ -2,7 +2,7 @@ import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Row, Spinner, Icon } from "@innovaccer/design-system";
-import openSandbox from "./sandbox.js";
+import {openSandbox} from "./sandbox.js";
 import codesandbox_icon from "./codesandbox_icon.svg";
 
 const CopyCode = (props) => {
