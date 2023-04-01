@@ -3,11 +3,18 @@ import { Input, Row, Button } from "@innovaccer/design-system";
 
 export const InputBox = ({ onSubmitHandler, componentName }) => {
   const [query, setQuery] = useState(componentName);
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       onSubmitHandler(query);
     }
   };
+
+  const submitHandler = () => {
+    onSubmitHandler(query);
+    setQuery('');
+  }
+
   return (
     <Row>
       <Input
@@ -21,7 +28,7 @@ export const InputBox = ({ onSubmitHandler, componentName }) => {
         className="ml-3"
         size="regular"
         aria-label="Submit your response"
-        onClick={() => onSubmitHandler(query)}
+        onClick={submitHandler}
         icon="send"
         iconAlign="left"
       ></Button>
