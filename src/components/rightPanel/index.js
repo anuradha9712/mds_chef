@@ -10,26 +10,14 @@ export const RightPanel = ({ componentName }) => {
       id: 123,
       message: {
         code: "",
-        text: "Hello! I am Masala Design System Chef",
+        text: "Hello! I am Masala Design System Chef \n Please select an ingredient from panel to start making a recipe",
         suggestions: [],
         actions: [],
       },
       author: {
         name: "AI",
       },
-    },
-    {
-      id: 456,
-      message: {
-        code: "",
-        text: "Please select an ingredient from panel to start making a recipe",
-        suggestions: [],
-        actions: [],
-      },
-      author: {
-        name: "AI",
-      },
-    },
+    }
   ];
   const [chatData, setChatData] = useState(dummyData);
   const [showLoader, setShowLoader] = useState(false);
@@ -49,7 +37,7 @@ export const RightPanel = ({ componentName }) => {
         };
         const response = {
           message: {
-            code: data.code,
+            code: data.code.trim(),
           },
           author: {
             name: "AI",

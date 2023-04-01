@@ -1,8 +1,8 @@
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Row, Spinner, Icon } from "@innovaccer/design-system";
-import {openSandbox} from "./sandbox.js";
+import { Row, Column, Spinner, Icon, Avatar, Divider } from "@innovaccer/design-system";
+import openSandbox from "./sandbox.js";
 import codesandbox_icon from "./codesandbox_icon.svg";
 
 const CopyCode = (props) => {
@@ -54,15 +54,46 @@ const ChatItem = ({ chat }) => {
   const type = chat.author.name;
   const message = chat.message.text;
   const codeResponse = chat.message.code;
+  const timeStamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: true });
 
   return (
     <div className="m-5">
-      <Row className={`${type === "HUMAN" ? "justify-content-end" : ""}`}>
+      <Row>
         {message && (
-          <div className="bg-secondary-lightest p-4 message-box">{message}</div>
+          <Row>
+            <Column size={1}>
+              <div className="bot-human-icon-wrapper">
+                <Avatar
+                  appearance={type === "HUMAN" ? 'secondary' : 'accent2'}
+                  firstName={type === "HUMAN" ? 'You' : 'MDS'}
+                  size="regular" />
+              </div>
+            </Column>
+            <Column size={11}>
+              <div><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
+              <div className="bg-secondary-lightest p-4 message-box">{message}</div>
+            </Column>
+          </Row>
         )}
       </Row>
-      <Row>{codeResponse && <CodePreview codeResponse={codeResponse} />}</Row>
+      <Row>
+        {codeResponse && (
+          <Row>
+            <Column size={1}>
+              <div className="bot-human-icon-wrapper">
+                <Avatar
+                  appearance={type === "HUMAN" ? 'secondary' : 'accent2'}
+                  firstName={type === "HUMAN" ? 'You' : 'MDS'}
+                  size="regular" />
+              </div>
+            </Column>
+            <Column size={11}>
+              <div><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
+              <CodePreview codeResponse={codeResponse} />
+            </Column>
+          </Row>
+        )}
+      </Row>
     </div>
   );
 };
