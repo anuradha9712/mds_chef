@@ -9,8 +9,8 @@ export const RightPanel = ({ componentName }) => {
     {
       id: 123,
       message: {
-        code: "hello I am user",
-        text: "",
+        code: "",
+        text: "hello I am user",
         suggestions: [],
         actions: [],
       },
@@ -21,8 +21,8 @@ export const RightPanel = ({ componentName }) => {
     {
       id: 456,
       message: {
-        code: "hello I am AI",
-        text: "",
+        code: "code generated here",
+        text: "hello I am AI",
         suggestions: [],
         actions: [],
       },
