@@ -37,7 +37,7 @@
 }
 
 .chatbox {
-  height: 68vh;
+  height: calc(80vh - 90px) !important;
 }
 
 .message-box {
