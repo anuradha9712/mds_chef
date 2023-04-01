@@ -1,4 +1,4 @@
-import ChatLogo from './components/chatLogo';
+import ChatLogo from './components/chatbotLogo';
 import './App.css';
 
 function App() {
