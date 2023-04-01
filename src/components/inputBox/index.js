@@ -7,12 +7,13 @@ export const InputBox = ({ onSubmitHandler, componentName }) => {
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       onSubmitHandler(query);
+      setQuery("");
     }
   };
 
   const submitHandler = () => {
     onSubmitHandler(query);
-    setQuery('');
+    setQuery("");
   }
 
   return (

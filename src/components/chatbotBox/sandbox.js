@@ -26,7 +26,7 @@ export const openSandbox =  (jsxStoryCode) => {
   const code = `
 import ReactDOM from "react-dom";
 import React from "react";
-import "@innovaccer/design-system/css";
+import "@innovaccer/design-system/css/dist/index.css";
 
 ${structuredCode}
 

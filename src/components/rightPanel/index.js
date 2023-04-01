@@ -3,44 +3,51 @@ import TopHeader from "../topHeader";
 import InputBox from "../inputBox";
 import ChatBox from "../chatbotBox";
 import getChatData from "../../api";
+import { async } from "q";
 
+const dummyData = [
+  {
+    id: 123,
+    message: {
+      code: "",
+      text: `Hello! I am Masala Design System Chef \n Please select an ingredient from panel to start making a recipe`,
+      suggestions: [],
+      actions: [],
+    },
+    author: {
+      name: "AI",
+    },
+    time: new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }),
+  },
+];
 export const RightPanel = ({ componentName }) => {
-  const dummyData = [
-    {
-      id: 123,
-      message: {
-        code: "",
-        text: `Hello! I am Masala Design System Chef \n Please select an ingredient from panel to start making a recipe`,
-        suggestions: [],
-        actions: [],
-      },
-      author: {
-        name: "AI",
-      },
-      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: true })
-    }
-  ];
   const [chatData, setChatData] = useState(dummyData);
   const [showLoader, setShowLoader] = useState(false);
 
-  const onSubmitHandler = (query) => {
+  const onSubmitHandler = async (query) => {
+    const userQuery = {
+      message: {
+        text: query,
+      },
+      author: {
+        name: "HUMAN",
+      },
+      time: new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      }),
+    };
+    setChatData([...chatData, userQuery]);
     setShowLoader(true);
     getChatData(componentName, query)
       .then((data) => {
         console.log("api data->>", data);
-        const userQuery = {
-          message: {
-            text: query,
-          },
-          author: {
-            name: "HUMAN",
-          },
-          time: new Date().toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true,
-          }),
-        };
+
         const response = {
           message: {
             code: data.code.trim(),

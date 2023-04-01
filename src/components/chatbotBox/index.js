@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { Row, Column, Spinner, Icon, Avatar, Divider } from "@innovaccer/design-system";
+import { Row, Column, Icon, Avatar, Divider, Placeholder, PlaceholderParagraph } from "@innovaccer/design-system";
 import openSandbox from "./sandbox.js";
 import codesandbox_icon from "./codesandbox_icon.svg";
+
 
 const CopyCode = (props) => {
   const { jsxCode } = props;
@@ -51,16 +52,23 @@ const CodePreview = ({ codeResponse }) => {
 };
 
 const ChatItem = ({ chat }) => {
+
+  const divRef = useRef(null);
+
+  useEffect(() => {
+    divRef.current.scrollIntoView({ behavior: 'smooth', block: "end", inline: "nearest" });
+  });
+
   const type = chat.author.name;
   const message = chat.message.text;
   const codeResponse = chat.message.code;
   const timeStamp = chat.time;
 
   return (
-    <div className="m-5">
+    <div className="m-5" ref={divRef}>
       <Row>
         {message && (
-          <Row>
+          <Row className="pb-6">
             <Column size={1}>
               <div className="bot-human-icon-wrapper">
                 <Avatar
@@ -106,8 +114,24 @@ export const ChatBox = ({ chatData, showLoader }) => {
         <ChatItem chat={chat} key={key} />
       ))}
       {showLoader && (
-        <Row className="justify-content-center">
-          <Spinner />
+        <Row className="m-5">
+          <Row>
+            <Column size={1}>
+              <div className="bot-human-icon-wrapper">
+                <Avatar
+                  appearance={'accent2'}
+                  firstName={'MDS'}
+                  size="regular" />
+              </div>
+            </Column>
+            <Column size={11}>
+              <Placeholder withImage={false}>
+                <PlaceholderParagraph length="medium" />
+                <PlaceholderParagraph length="medium" />
+                <PlaceholderParagraph length="small" />
+              </Placeholder>
+            </Column>
+          </Row>
         </Row>
       )}
     </div>
