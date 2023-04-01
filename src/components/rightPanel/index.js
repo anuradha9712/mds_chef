@@ -60,6 +60,16 @@ export const RightPanel = ({ componentName }) => {
       })
       .catch((err) => {
         console.log("error data", err);
+        setShowLoader(false);
+        const defaultResponse = {
+          message: {
+            text: "Please provide more details!",
+          },
+          author: {
+            name: "AI",
+          },
+        };
+        setChatData([...chatData, defaultResponse]);
       });
   };
 

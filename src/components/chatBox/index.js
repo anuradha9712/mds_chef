@@ -2,7 +2,8 @@ import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Row, Spinner, Icon } from "@innovaccer/design-system";
-// import openSandbox from "./sandbox.js";
+import openSandbox from "./sandbox.js";
+import codesandbox_icon from "./codesandbox_icon.svg";
 
 const CopyCode = (props) => {
   const { jsxCode } = props;
@@ -13,14 +14,15 @@ const CopyCode = (props) => {
 
   return (
     <div className="ml-auto d-flex justify-content-end ">
-      {/* <img
-        src="/icons/4691539_codesandbox_icon.svg"
+      <img
+        alt="codesandbox"
+        src={codesandbox_icon}
         className="codesandBox-icon cursor-pointer mr-6 align-self-center"
         onClick={(e) => {
           e.preventDefault();
           openSandbox(jsxCode);
         }}
-      /> */}
+      />
       <div className="d-flex align-self-end">
         <Icon
           name="content_copy"
@@ -34,7 +36,6 @@ const CopyCode = (props) => {
   );
 };
 const CodePreview = ({ codeResponse }) => {
-
   return (
     <div className="codeblock-container">
       <CopyCode jsxCode={codeResponse} />
