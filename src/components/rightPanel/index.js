@@ -3,7 +3,6 @@ import TopHeader from "../topHeader";
 import InputBox from "../inputBox";
 import ChatBox from "../chatbotBox";
 import getChatData from "../../api";
-import { async } from "q";
 
 const dummyData = [
   {
@@ -43,11 +42,11 @@ export const RightPanel = ({ componentName }) => {
       }),
     };
     setChatData([...chatData, userQuery]);
-    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(true);
+    }, 300);
     getChatData(componentName, query)
       .then((data) => {
-        console.log("api data->>", data);
-
         const response = {
           message: {
             code: data.code.trim(),
@@ -65,17 +64,21 @@ export const RightPanel = ({ componentName }) => {
         setChatData([...chatData, userQuery, response]);
       })
       .catch((err) => {
-        console.log("error data", err);
         setShowLoader(false);
         const defaultResponse = {
           message: {
-            text: "Please provide more details!",
+            text: "We couldn't cook your recipe, Please send the command again!",
           },
           author: {
             name: "AI",
           },
+          time: new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+          }),
         };
-        setChatData([...chatData, defaultResponse]);
+        setChatData([...chatData, userQuery, defaultResponse]);
       });
   };
 

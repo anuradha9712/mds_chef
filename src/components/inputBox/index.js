@@ -17,18 +17,21 @@ export const InputBox = ({ onSubmitHandler, componentName }) => {
   }
 
   return (
-    <Row>
+    <Row className="input-box">
       <Input
         name="input"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Enter your query here"
         onKeyPress={handleKeyPress}
+        size="large"
+        autoComplete="off"
       />
       <Button
         className="ml-3"
-        size="regular"
+        size="large"
         aria-label="Submit your response"
+        appearance="primary"
         onClick={submitHandler}
         icon="send"
         iconAlign="left"

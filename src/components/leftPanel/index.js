@@ -41,6 +41,7 @@ export const LeftPanel = ({optionClickHandler}) => {
         className="mb-3"
         icon="search"
         minWidth="50px"
+        autoComplete="off"
       />
       <div className="vertical-nav-container bg-secondary-lightest page-scroll">
         <VerticalNav

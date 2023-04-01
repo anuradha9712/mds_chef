@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, {useRef, useEffect} from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Row, Column, Icon, Avatar, Divider, Placeholder, PlaceholderParagraph } from "@innovaccer/design-system";
@@ -56,7 +56,7 @@ const ChatItem = ({ chat }) => {
   const divRef = useRef(null);
 
   useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: 'smooth', block: "end", inline: "nearest" });
+    divRef.current.scrollIntoView({ behavior: 'smooth' });
   });
 
   const type = chat.author.name;
@@ -69,7 +69,7 @@ const ChatItem = ({ chat }) => {
       <Row>
         {message && (
           <Row className="pb-6">
-            <Column size={1}>
+            <Column className="flex-grow-0 pr-5">
               <div className="bot-human-icon-wrapper">
                 <Avatar
                   appearance={type === "HUMAN" ? 'secondary' : 'accent2'}
@@ -77,7 +77,7 @@ const ChatItem = ({ chat }) => {
                   size="regular" />
               </div>
             </Column>
-            <Column size={11} className="border-bottom pb-5">
+            <Column className="border-bottom pb-5">
               <div className="mb-4"><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
               <div className="bg-secondary-lightest p-4 message-box">{message}</div>
             </Column>
@@ -87,7 +87,7 @@ const ChatItem = ({ chat }) => {
       <Row>
         {codeResponse && (
           <Row>
-            <Column size={1}>
+            <Column className="flex-grow-0 pr-5">
               <div className="bot-human-icon-wrapper">
                 <Avatar
                   appearance={type === "HUMAN" ? 'secondary' : 'accent2'}
@@ -95,7 +95,7 @@ const ChatItem = ({ chat }) => {
                   size="regular" />
               </div>
             </Column>
-            <Column size={11} className="border-bottom pb-5">
+            <Column className="border-bottom pb-5">
               <div className="mb-4"><b>{type === "HUMAN" ? 'You' : 'MDS-Chef'}</b><span className="pl-5">{timeStamp}</span></div>
               <CodePreview codeResponse={codeResponse} />
             </Column>
@@ -107,6 +107,13 @@ const ChatItem = ({ chat }) => {
   );
 };
 
+const goToBottom = () => {
+  window.scrollTo({
+    bottom: 0,
+    behavior: 'smooth',
+  });
+};
+
 export const ChatBox = ({ chatData, showLoader }) => {
   return (
     <div className="bg-light chatbox p-4 overflow-auto">
@@ -116,7 +123,7 @@ export const ChatBox = ({ chatData, showLoader }) => {
       {showLoader && (
         <Row className="m-5">
           <Row>
-            <Column size={1}>
+            <Column className="flex-grow-0 pr-5">
               <div className="bot-human-icon-wrapper">
                 <Avatar
                   appearance={'accent2'}
@@ -124,7 +131,7 @@ export const ChatBox = ({ chatData, showLoader }) => {
                   size="regular" />
               </div>
             </Column>
-            <Column size={11}>
+            <Column>
               <Placeholder withImage={false}>
                 <PlaceholderParagraph length="medium" />
                 <PlaceholderParagraph length="medium" />
@@ -134,6 +141,7 @@ export const ChatBox = ({ chatData, showLoader }) => {
           </Row>
         </Row>
       )}
+      {goToBottom()}
     </div>
   );
 };

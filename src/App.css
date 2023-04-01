@@ -5,7 +5,7 @@
   bottom: 90px;
   right: 90px;
   background-color: var(--secondary-lightest);
-  border-radius: var(--spacing-2);
+  border-radius: var(--spacing);
   border: var(--border);
   box-shadow: 0 0 0 5px var(--secondary-shadow);
   z-index: 5000;
@@ -35,6 +35,8 @@
   box-shadow: var(--shadow-spread) var(--secondary-shadow);
   animation: 1.7s ease-in-out 0s infinite normal none running upwardAnimate;
   animation-iteration-count: 1;
+  background-color: #0077dd;
+  box-shadow: 0px 0 10px 5px #0077dd6e;
 }
 
 .page-scroll {
@@ -52,9 +54,22 @@
 }
 
 .chatbox {
-  height: calc(80vh - 90px) !important;
+  height: calc(80vh - 132px) !important;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 3px #f1f1f1;
+}
+
+.input-box {
+  background-color: var(--white);
+  box-shadow: 0 0 0 3px #f1f1f1;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  padding: 12px 16px;
 }
 
 .message-box {
@@ -64,8 +79,13 @@
 
 .codeblock-container {
   background: rgb(1, 22, 39);
-  border-radius: 16px;
+  border-radius: 6px;
   padding: 16px;
+}
+
+.codeblock-container pre {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .bot-human-icon-wrapper{
