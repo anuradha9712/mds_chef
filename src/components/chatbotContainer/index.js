@@ -11,12 +11,12 @@ export const ChatContainer = () => {
   };
 
   return (
-    <div className="App-container p-6">
+    <div className="App-container p-6 popup-fade-in">
       <Row>
         <Column size={3}>
           <LeftPanel optionClickHandler={optionClickHandler} />
         </Column>
-        <Column size={8.5} className='ml-6'>
+        <Column size={8.5} className="ml-6">
           <RightPanel componentName={componentName} />
         </Column>
       </Row>

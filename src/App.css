@@ -2,8 +2,8 @@
   width: 80vw;
   height: 80vh;
   position: fixed;
-  bottom: 90px;
-  right: 90px;
+  bottom: 75px;
+  right: 75px;
   background-color: var(--secondary-lightest);
   border-radius: var(--spacing);
   border: var(--border);
@@ -37,6 +37,7 @@
   animation-iteration-count: 1;
   background-color: #0077dd;
   box-shadow: 0px 0 10px 5px #0077dd6e;
+  z-index: 5001;
 }
 
 .page-scroll {
@@ -91,4 +92,18 @@
 .bot-human-icon-wrapper{
   display: flex;
   justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.popup-fade-in {
+  animation: fadeIn 360ms var(--standard-productive-curve);
 }
