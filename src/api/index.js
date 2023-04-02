@@ -1,10 +1,10 @@
-export const getChatData = async (componentName = 'Avatar', query) => {
+export const getChatData = async (componentName = 'Avatar', query = 'Describe Masala Design System') => {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   var raw = JSON.stringify({
     component: componentName,
-    query
+    query: query && query.trim()
   });
 
   var requestOptions = {

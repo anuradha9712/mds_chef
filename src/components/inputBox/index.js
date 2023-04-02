@@ -4,15 +4,17 @@ import { Input, Row, Button } from "@innovaccer/design-system";
 export const InputBox = ({ onSubmitHandler, componentName, inputDisabled }) => {
   const [query, setQuery] = useState(componentName);
 
+  let formatQuery = query && query.trim().length >= 1;
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      onSubmitHandler(query);
+      formatQuery && onSubmitHandler(query);
       setQuery("");
     }
   };
 
   const submitHandler = () => {
-    onSubmitHandler(query);
+    formatQuery && onSubmitHandler(query);
     setQuery("");
   }
 
