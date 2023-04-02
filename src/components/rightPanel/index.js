@@ -26,6 +26,7 @@ const dummyData = [
 export const RightPanel = ({ componentName }) => {
   const [chatData, setChatData] = useState(dummyData);
   const [showLoader, setShowLoader] = useState(false);
+  const [inputDisabled, setInputDisabled] = useState(false);
 
   const onSubmitHandler = async (query) => {
     const userQuery = {
@@ -45,6 +46,7 @@ export const RightPanel = ({ componentName }) => {
     setTimeout(() => {
       setShowLoader(true);
     }, 300);
+    setInputDisabled(true);
     getChatData(componentName, query)
       .then((data) => {
         const response = {
@@ -61,10 +63,12 @@ export const RightPanel = ({ componentName }) => {
           }),
         };
         setShowLoader(false);
+        setInputDisabled(false);
         setChatData([...chatData, userQuery, response]);
       })
       .catch((err) => {
         setShowLoader(false);
+        setInputDisabled(false);
         const defaultResponse = {
           message: {
             text: "We couldn't cook your recipe, Please send the command again!",
@@ -88,6 +92,7 @@ export const RightPanel = ({ componentName }) => {
       <ChatBox chatData={chatData} showLoader={showLoader} />
       <InputBox
         onSubmitHandler={onSubmitHandler}
+        setInputDisabled={inputDisabled}
         componentName={componentName}
       />
     </div>

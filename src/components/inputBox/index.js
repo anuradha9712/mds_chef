@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input, Row, Button } from "@innovaccer/design-system";
 
-export const InputBox = ({ onSubmitHandler, componentName }) => {
+export const InputBox = ({ onSubmitHandler, componentName, inputDisabled }) => {
   const [query, setQuery] = useState(componentName);
 
   const handleKeyPress = (event) => {
@@ -19,22 +19,24 @@ export const InputBox = ({ onSubmitHandler, componentName }) => {
   return (
     <Row className="input-box">
       <Input
+        size="large"
         name="input"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Enter your query here"
-        onKeyPress={handleKeyPress}
-        size="large"
         autoComplete="off"
+        disabled={inputDisabled}
+        onKeyPress={handleKeyPress}
+        placeholder="Enter your query here"
+        onChange={(e) => setQuery(e.target.value)}
       />
       <Button
-        className="ml-3"
+        icon="send"
         size="large"
-        aria-label="Submit your response"
+        className="ml-3"
+        iconAlign="left"
         appearance="primary"
         onClick={submitHandler}
-        icon="send"
-        iconAlign="left"
+        disabled={query === "" || !query}
+        aria-label="Submit your response"
       ></Button>
     </Row>
   );
