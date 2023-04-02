@@ -25,7 +25,7 @@ export const InputBox = ({ onSubmitHandler, componentName, inputDisabled }) => {
         autoComplete="off"
         disabled={inputDisabled}
         onKeyPress={handleKeyPress}
-        placeholder="Enter your query here"
+        placeholder="Enter your query here..."
         onChange={(e) => setQuery(e.target.value)}
       />
       <Button
